@@ -1,0 +1,42 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "BCABodySiteVS",
+  "id": "bca-body-site-vs",
+  "title": "BCABodySiteVS",
+  "description": "Areas of the body where the body composition analysis measurements are computed.",
+  "url": "https://uk-essen.de/fhir/ValueSet/boa/body-site",
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "https://uk-essen.de/fhir/ValueSet/boa/vertebra"
+        ]
+      },
+      {
+        "system": "https://uk-essen.de/fhir/CodeSystem/boa/body-site"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "361473009",
+            "display": "Abdominal Cavity"
+          },
+          {
+            "code": "43799004",
+            "display": "Thoracic Cavity"
+          },
+          {
+            "code": "72410000",
+            "display": "Mediastinum"
+          },
+          {
+            "code": "76848001",
+            "display": "Pericardium"
+          }
+        ]
+      }
+    ]
+  }
+}

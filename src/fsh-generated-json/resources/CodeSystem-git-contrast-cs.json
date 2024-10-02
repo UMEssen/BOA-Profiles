@@ -1,0 +1,21 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "GITContrastCS",
+  "id": "git-contrast-cs",
+  "title": "GITContrastCS",
+  "description": "Codes for whether the gastrointestinal tract is contrast-enhanced.",
+  "url": "https://uk-essen.de/fhir/CodeSystem/boa/contrast/git",
+  "concept": [
+    {
+      "code": "non-contrast",
+      "display": "No contrast detected in the gastrointestinal tract"
+    },
+    {
+      "code": "contrast-enhanced",
+      "display": "Contrast detected in the gastrointestinal tract"
+    }
+  ],
+  "count": 2
+}

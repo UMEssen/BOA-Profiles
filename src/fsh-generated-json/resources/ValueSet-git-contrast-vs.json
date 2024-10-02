@@ -1,0 +1,16 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "GITContrastVS",
+  "id": "git-contrast-vs",
+  "title": "GITContrastVS",
+  "description": "Contrast presence detection in the gastrointestinal tract as detected by BOA-contrast.",
+  "url": "https://uk-essen.de/fhir/ValueSet/boa/contrast/git",
+  "compose": {
+    "include": [
+      {
+        "system": "https://uk-essen.de/fhir/CodeSystem/boa/contrast/git"
+      }
+    ]
+  }
+}

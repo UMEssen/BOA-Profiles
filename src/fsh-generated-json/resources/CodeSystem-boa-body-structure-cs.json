@@ -1,0 +1,133 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "BOABodyStructureCS",
+  "id": "boa-body-structure-cs",
+  "title": "BOABodyStructureCS",
+  "description": "CodeSystem for the anatomical landmarks computed by the Body and Organ Analysis (BOA) tool that are not defined in SNOMED CT.",
+  "url": "https://uk-essen.de/fhir/CodeSystem/boa/body-structure",
+  "concept": [
+    {
+      "code": "rib-left-1",
+      "display": "First Rib Left"
+    },
+    {
+      "code": "rib-left-2",
+      "display": "Second Rib Left"
+    },
+    {
+      "code": "rib-left-3",
+      "display": "Third Rib Left"
+    },
+    {
+      "code": "rib-left-4",
+      "display": "Fourth Rib Left"
+    },
+    {
+      "code": "rib-left-5",
+      "display": "Fifth Rib Left"
+    },
+    {
+      "code": "rib-left-6",
+      "display": "Sixth Rib Left"
+    },
+    {
+      "code": "rib-left-7",
+      "display": "Seventh Rib Left"
+    },
+    {
+      "code": "rib-left-8",
+      "display": "Eighth Rib Left"
+    },
+    {
+      "code": "rib-left-9",
+      "display": "Ninth Rib Left"
+    },
+    {
+      "code": "rib-left-10",
+      "display": "Tenth Rib Left"
+    },
+    {
+      "code": "rib-left-11",
+      "display": "Eleventh Rib Left"
+    },
+    {
+      "code": "rib-left-12",
+      "display": "Twelfth Rib Left"
+    },
+    {
+      "code": "rib-right-1",
+      "display": "First Rib Right"
+    },
+    {
+      "code": "rib-right-2",
+      "display": "Second Rib Right"
+    },
+    {
+      "code": "rib-right-3",
+      "display": "Third Rib Right"
+    },
+    {
+      "code": "rib-right-4",
+      "display": "Fourth Rib Right"
+    },
+    {
+      "code": "rib-right-5",
+      "display": "Fifth Rib Right"
+    },
+    {
+      "code": "rib-right-6",
+      "display": "Sixth Rib Right"
+    },
+    {
+      "code": "rib-right-7",
+      "display": "Seventh Rib Right"
+    },
+    {
+      "code": "rib-right-8",
+      "display": "Eighth Rib Right"
+    },
+    {
+      "code": "rib-right-9",
+      "display": "Ninth Rib Right"
+    },
+    {
+      "code": "rib-right-10",
+      "display": "Tenth Rib Right"
+    },
+    {
+      "code": "rib-right-11",
+      "display": "Eleventh Rib Right"
+    },
+    {
+      "code": "rib-right-12",
+      "display": "Twelfth Rib Right"
+    },
+    {
+      "code": "gluteus-maximus-left",
+      "display": "Gluteus Maximus Left"
+    },
+    {
+      "code": "gluteus-maximus-right",
+      "display": "Gluteus Maximus Right"
+    },
+    {
+      "code": "gluteus-minimus-left",
+      "display": "Gluteus Minimus Left"
+    },
+    {
+      "code": "gluteus-minimus-right",
+      "display": "Gluteus Minimus Right"
+    },
+    {
+      "code": "autochthon-left",
+      "display": "Autochthon Left"
+    },
+    {
+      "code": "autochthon-right",
+      "display": "Autochthon Right"
+    }
+  ],
+  "count": 30
+}

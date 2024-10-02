@@ -1,0 +1,146 @@
+[
+  {
+    "outputFile": "CodeSystem-bca-body-site-cs.json",
+    "fshName": "BCABodySiteCS",
+    "fshType": "CodeSystem",
+    "fshFile": "BOABodyCompositionAnalysis.cs.fsh",
+    "startLine": 28,
+    "endLine": 34
+  },
+  {
+    "outputFile": "CodeSystem-bca-measurements-cs.json",
+    "fshName": "BCAMeasurementsCS",
+    "fshType": "CodeSystem",
+    "fshFile": "BOABodyCompositionAnalysis.cs.fsh",
+    "startLine": 6,
+    "endLine": 12
+  },
+  {
+    "outputFile": "CodeSystem-bca-slice-range-cs.json",
+    "fshName": "BCASliceRangeCS",
+    "fshType": "CodeSystem",
+    "fshFile": "BOABodyCompositionAnalysis.cs.fsh",
+    "startLine": 37,
+    "endLine": 42
+  },
+  {
+    "outputFile": "CodeSystem-bcs-tissues-cs.json",
+    "fshName": "BCATissuesCS",
+    "fshType": "CodeSystem",
+    "fshFile": "BOABodyCompositionAnalysis.cs.fsh",
+    "startLine": 16,
+    "endLine": 25
+  },
+  {
+    "outputFile": "CodeSystem-boa-body-structure-cs.json",
+    "fshName": "BOABodyStructureCS",
+    "fshType": "CodeSystem",
+    "fshFile": "BOABodyStructure.cs.fsh",
+    "startLine": 4,
+    "endLine": 40
+  },
+  {
+    "outputFile": "CodeSystem-git-contrast-cs.json",
+    "fshName": "GITContrastCS",
+    "fshType": "CodeSystem",
+    "fshFile": "BOAContrast.cs.fsh",
+    "startLine": 15,
+    "endLine": 21
+  },
+  {
+    "outputFile": "CodeSystem-iv-phase-cs.json",
+    "fshName": "IVPhaseCS",
+    "fshType": "CodeSystem",
+    "fshFile": "BOAContrast.cs.fsh",
+    "startLine": 4,
+    "endLine": 13
+  },
+  {
+    "outputFile": "StructureDefinition-boa-bca-observation.json",
+    "fshName": "BOABodyCompositionAnalysisObservation",
+    "fshType": "Profile",
+    "fshFile": "BOABodyCompositionAnalysisObservation.sd.fsh",
+    "startLine": 1,
+    "endLine": 78
+  },
+  {
+    "outputFile": "StructureDefinition-boa-body-structure-volume-observation.json",
+    "fshName": "BOABodyStructureVolumeObservation",
+    "fshType": "Profile",
+    "fshFile": "BOABodyStructureVolumeObservation.sd.fsh",
+    "startLine": 1,
+    "endLine": 236
+  },
+  {
+    "outputFile": "StructureDefinition-boa-diagnostic-report.json",
+    "fshName": "BOADiagnosticReport",
+    "fshType": "Profile",
+    "fshFile": "BOADiagnosticReport.sd.fsh",
+    "startLine": 1,
+    "endLine": 98
+  },
+  {
+    "outputFile": "StructureDefinition-boa-imaging-study.json",
+    "fshName": "BOAImagingStudy",
+    "fshType": "Profile",
+    "fshFile": "BOAImagingStudy.sd.fsh",
+    "startLine": 1,
+    "endLine": 33
+  },
+  {
+    "outputFile": "ValueSet-bca-body-site-vs.json",
+    "fshName": "BCABodySiteVS",
+    "fshType": "ValueSet",
+    "fshFile": "BOABodyCompositionAnalysis.vs.fsh",
+    "startLine": 29,
+    "endLine": 39
+  },
+  {
+    "outputFile": "ValueSet-bca-measurements-vs.json",
+    "fshName": "BCAMeasurementsVS",
+    "fshType": "ValueSet",
+    "fshFile": "BOABodyCompositionAnalysis.vs.fsh",
+    "startLine": 8,
+    "endLine": 13
+  },
+  {
+    "outputFile": "ValueSet-bca-tissues-vs.json",
+    "fshName": "BCATissuesVS",
+    "fshType": "ValueSet",
+    "fshFile": "BOABodyCompositionAnalysis.vs.fsh",
+    "startLine": 15,
+    "endLine": 25
+  },
+  {
+    "outputFile": "ValueSet-boa-body-structure-vs.json",
+    "fshName": "BOABodyStructureVS",
+    "fshType": "ValueSet",
+    "fshFile": "BOABodyStructure.vs.fsh",
+    "startLine": 38,
+    "endLine": 95
+  },
+  {
+    "outputFile": "ValueSet-boa-vertebra-vs.json",
+    "fshName": "BOAVertebraVS",
+    "fshType": "ValueSet",
+    "fshFile": "BOABodyStructure.vs.fsh",
+    "startLine": 7,
+    "endLine": 35
+  },
+  {
+    "outputFile": "ValueSet-git-contrast-vs.json",
+    "fshName": "GITContrastVS",
+    "fshType": "ValueSet",
+    "fshFile": "BOAContrast.vs.fsh",
+    "startLine": 13,
+    "endLine": 18
+  },
+  {
+    "outputFile": "ValueSet-iv-phase-vs.json",
+    "fshName": "IVPhaseVS",
+    "fshType": "ValueSet",
+    "fshFile": "BOAContrast.vs.fsh",
+    "startLine": 6,
+    "endLine": 11
+  }
+]

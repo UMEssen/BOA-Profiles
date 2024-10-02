@@ -1,0 +1,33 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "IVPhaseCS",
+  "id": "iv-phase-cs",
+  "title": "IVPhaseCS",
+  "description": "Codes for the different phases of contrast enhancement in the vascular system.",
+  "url": "https://uk-essen.de/fhir/CodeSystem/boa/contrast/iv-phase",
+  "concept": [
+    {
+      "code": "non-contrast",
+      "display": "No contrast detected in the vascular system"
+    },
+    {
+      "code": "pulmonary-arterial",
+      "display": "Pulmonary arterial phase"
+    },
+    {
+      "code": "arterial",
+      "display": "Arterial phase"
+    },
+    {
+      "code": "venous",
+      "display": "Venous phase"
+    },
+    {
+      "code": "urographic",
+      "display": "Urographic phase"
+    }
+  ],
+  "count": 5
+}
