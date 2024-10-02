@@ -1,0 +1,16 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "IVPhaseVS",
+  "id": "iv-phase-vs",
+  "title": "IVPhaseVS",
+  "description": "Contrast phase for intravenous contrast as detected by BOA-contrast.",
+  "url": "https://uk-essen.de/fhir/ValueSet/boa/contrast/iv-phase",
+  "compose": {
+    "include": [
+      {
+        "system": "https://uk-essen.de/fhir/CodeSystem/boa/contrast/iv-phase"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "BCAMeasurementsVS",
+  "id": "bca-measurements-vs",
+  "title": "BCAMeasurementsVS",
+  "description": "Measurement kind for the body composition analysis.",
+  "url": "https://uk-essen.de/fhir/ValueSet/boa/measurements",
+  "compose": {
+    "include": [
+      {
+        "system": "https://uk-essen.de/fhir/CodeSystem/boa/measurements"
+      }
+    ]
+  }
+}

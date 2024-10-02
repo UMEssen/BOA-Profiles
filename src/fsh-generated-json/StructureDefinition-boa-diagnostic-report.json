@@ -1,0 +1,356 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "boa-diagnostic-report",
+  "url": "https://profiles.ship.ume.de/StructureDefinition/boa-diagnostic-report",
+  "version": "0.0.1",
+  "name": "BOADiagnosticReport",
+  "title": "BOADiagnosticReport",
+  "status": "active",
+  "description": "Segmentation and biomarker report generated with the Body and Organ Analysis (BOA) tool.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DiagnosticReport",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "DiagnosticReport.identifier",
+        "path": "DiagnosticReport.identifier",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "openAtEnd"
+        },
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.identifier:DICOM",
+        "path": "DiagnosticReport.identifier",
+        "sliceName": "DICOM",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.identifier:DICOM.type.coding.system",
+        "path": "DiagnosticReport.identifier.type.coding.system",
+        "patternUri": "http://dicom.nema.org/resources/ontology/DCM"
+      },
+      {
+        "id": "DiagnosticReport.identifier:DICOM.type.coding.code",
+        "path": "DiagnosticReport.identifier.type.coding.code",
+        "patternCode": "112002"
+      },
+      {
+        "id": "DiagnosticReport.identifier:DICOM.type.coding.display",
+        "path": "DiagnosticReport.identifier.type.coding.display",
+        "patternString": "SeriesInstanceUID: A unique identifier for a series of DICOM SOP instances"
+      },
+      {
+        "id": "DiagnosticReport.identifier:DICOM.system",
+        "path": "DiagnosticReport.identifier.system",
+        "min": 1,
+        "patternUri": "urn:dicom:uid"
+      },
+      {
+        "id": "DiagnosticReport.identifier:DICOM.value",
+        "path": "DiagnosticReport.identifier.value",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.status",
+        "path": "DiagnosticReport.status",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.category",
+        "path": "DiagnosticReport.category",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.category.coding",
+        "path": "DiagnosticReport.category.coding",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "system"
+            }
+          ],
+          "rules": "openAtEnd"
+        },
+        "min": 2,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.category.coding:git-hash",
+        "path": "DiagnosticReport.category.coding",
+        "sliceName": "git-hash",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.category.coding:git-hash.system",
+        "path": "DiagnosticReport.category.coding.system",
+        "min": 1,
+        "patternUri": "https://uk-essen.de/fhir/CodeSystem/boa/git-hash"
+      },
+      {
+        "id": "DiagnosticReport.category.coding:git-hash.code",
+        "path": "DiagnosticReport.category.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.category.coding:BOA-version",
+        "path": "DiagnosticReport.category.coding",
+        "sliceName": "BOA-version",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.category.coding:BOA-version.system",
+        "path": "DiagnosticReport.category.coding.system",
+        "min": 1,
+        "patternUri": "https://uk-essen.de/fhir/CodeSystem/boa/version"
+      },
+      {
+        "id": "DiagnosticReport.category.coding:BOA-version.code",
+        "path": "DiagnosticReport.category.coding.code",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.category.coding:IV-contrast-phase",
+        "path": "DiagnosticReport.category.coding",
+        "sliceName": "IV-contrast-phase",
+        "min": 0,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/contrast/iv-phase"
+        }
+      },
+      {
+        "id": "DiagnosticReport.category.coding:IV-contrast-phase.system",
+        "path": "DiagnosticReport.category.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/contrast/iv-phase"
+      },
+      {
+        "id": "DiagnosticReport.category.coding:GIT-contrast",
+        "path": "DiagnosticReport.category.coding",
+        "sliceName": "GIT-contrast",
+        "min": 0,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/contrast/git"
+        }
+      },
+      {
+        "id": "DiagnosticReport.category.coding:GIT-contrast.system",
+        "path": "DiagnosticReport.category.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/contrast/git"
+      },
+      {
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.code.coding.system",
+        "path": "DiagnosticReport.code.coding.system",
+        "min": 1,
+        "patternUri": "https://uk-essen.de/fhir/CodeSystem/boa/report"
+      },
+      {
+        "id": "DiagnosticReport.code.coding.code",
+        "path": "DiagnosticReport.code.coding.code",
+        "min": 1,
+        "patternCode": "BOA-Report"
+      },
+      {
+        "id": "DiagnosticReport.subject",
+        "path": "DiagnosticReport.subject",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://fhir.ume.de/fhir/StructureDefinition/boa/bca-observation",
+              "http://fhir.ume.de/fhir/StructureDefinition/boa/organ-volume-observation"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.imagingStudy",
+        "path": "DiagnosticReport.imagingStudy",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.presentedForm",
+        "path": "DiagnosticReport.presentedForm",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "contentType"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 3,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:PDF",
+        "path": "DiagnosticReport.presentedForm",
+        "sliceName": "PDF",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:PDF.contentType",
+        "path": "DiagnosticReport.presentedForm.contentType",
+        "min": 1,
+        "patternCode": "application/pdf"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:PDF.url",
+        "path": "DiagnosticReport.presentedForm.url",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:PDF.size",
+        "path": "DiagnosticReport.presentedForm.size",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:PDF.hash",
+        "path": "DiagnosticReport.presentedForm.hash",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:PDF.title",
+        "path": "DiagnosticReport.presentedForm.title",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:PDF.creation",
+        "path": "DiagnosticReport.presentedForm.creation",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:JSON",
+        "path": "DiagnosticReport.presentedForm",
+        "sliceName": "JSON",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:JSON.contentType",
+        "path": "DiagnosticReport.presentedForm.contentType",
+        "min": 1,
+        "patternCode": "application/json"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:JSON.url",
+        "path": "DiagnosticReport.presentedForm.url",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:JSON.size",
+        "path": "DiagnosticReport.presentedForm.size",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:JSON.hash",
+        "path": "DiagnosticReport.presentedForm.hash",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:JSON.title",
+        "path": "DiagnosticReport.presentedForm.title",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:JSON.creation",
+        "path": "DiagnosticReport.presentedForm.creation",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:EXCEL",
+        "path": "DiagnosticReport.presentedForm",
+        "sliceName": "EXCEL",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:EXCEL.contentType",
+        "path": "DiagnosticReport.presentedForm.contentType",
+        "min": 1,
+        "patternCode": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:EXCEL.url",
+        "path": "DiagnosticReport.presentedForm.url",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:EXCEL.size",
+        "path": "DiagnosticReport.presentedForm.size",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:EXCEL.hash",
+        "path": "DiagnosticReport.presentedForm.hash",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:EXCEL.title",
+        "path": "DiagnosticReport.presentedForm.title",
+        "min": 1
+      },
+      {
+        "id": "DiagnosticReport.presentedForm:EXCEL.creation",
+        "path": "DiagnosticReport.presentedForm.creation",
+        "min": 1
+      }
+    ]
+  }
+}

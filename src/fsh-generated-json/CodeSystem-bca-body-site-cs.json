@@ -1,0 +1,21 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "BCABodySiteCS",
+  "id": "bca-body-site-cs",
+  "title": "BCABodySiteCS",
+  "description": "Location for which the body composition analysis measurements are computed.",
+  "url": "https://uk-essen.de/fhir/CodeSystem/boa/body-site",
+  "concept": [
+    {
+      "code": "ventral-cavity",
+      "display": "Union of Abdominal and Thoracic Cavity"
+    },
+    {
+      "code": "whole-scan",
+      "display": "Whole Scan"
+    }
+  ],
+  "count": 2
+}

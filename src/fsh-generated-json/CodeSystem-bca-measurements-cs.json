@@ -1,0 +1,21 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "BCAMeasurementsCS",
+  "id": "bca-measurements-cs",
+  "title": "BCAMeasurementsCS",
+  "description": "Measurement kind for the body composition analysis.",
+  "url": "https://uk-essen.de/fhir/CodeSystem/boa/measurements",
+  "concept": [
+    {
+      "code": "volume-unfiltered",
+      "display": "Measurements with Extremities"
+    },
+    {
+      "code": "volume-filtered",
+      "display": "Measurements without Extremities"
+    }
+  ],
+  "count": 2
+}

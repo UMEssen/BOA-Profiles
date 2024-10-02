@@ -1,0 +1,5491 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "boa-body-structure-volume-observation",
+  "url": "http://fhir.ume.de/fhir/StructureDefinition/boa/organ-volume-observation",
+  "version": "0.0.1",
+  "name": "BOABodyStructureVolumeObservation",
+  "title": "BOABodyStructureVolumeObservation",
+  "status": "active",
+  "description": "Anatomical landmark volume measurements generated with the Body and Organ Analysis (BOA) tool.",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.status.value",
+        "path": "Observation.status.value",
+        "patternString": "final"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.effective[x]",
+        "path": "Observation.effective[x]",
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.derivedFrom",
+        "path": "Observation.derivedFrom",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/ImagingStudy"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "code.coding.code"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "min": 1
+      },
+      {
+        "id": "Observation.component:spleen",
+        "path": "Observation.component",
+        "sliceName": "spleen",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:spleen.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:spleen.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:spleen.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "78961009"
+      },
+      {
+        "id": "Observation.component:spleen.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:spleen.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:spleen.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:right-kidney",
+        "path": "Observation.component",
+        "sliceName": "right-kidney",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:right-kidney.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:right-kidney.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:right-kidney.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "9846003"
+      },
+      {
+        "id": "Observation.component:right-kidney.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:right-kidney.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:right-kidney.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:left-kidney",
+        "path": "Observation.component",
+        "sliceName": "left-kidney",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:left-kidney.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:left-kidney.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:left-kidney.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "18639004"
+      },
+      {
+        "id": "Observation.component:left-kidney.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:left-kidney.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:left-kidney.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:gallbladder",
+        "path": "Observation.component",
+        "sliceName": "gallbladder",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gallbladder.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:gallbladder.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:gallbladder.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "28231008"
+      },
+      {
+        "id": "Observation.component:gallbladder.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gallbladder.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:gallbladder.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:liver",
+        "path": "Observation.component",
+        "sliceName": "liver",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:liver.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:liver.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:liver.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "10200004"
+      },
+      {
+        "id": "Observation.component:liver.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:liver.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:liver.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:stomach",
+        "path": "Observation.component",
+        "sliceName": "stomach",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:stomach.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:stomach.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:stomach.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "69695003"
+      },
+      {
+        "id": "Observation.component:stomach.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:stomach.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:stomach.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:aorta",
+        "path": "Observation.component",
+        "sliceName": "aorta",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:aorta.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:aorta.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:aorta.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "15825003"
+      },
+      {
+        "id": "Observation.component:aorta.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:aorta.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:aorta.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:inferior-vena-cava",
+        "path": "Observation.component",
+        "sliceName": "inferior-vena-cava",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:inferior-vena-cava.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:inferior-vena-cava.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:inferior-vena-cava.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "64131007"
+      },
+      {
+        "id": "Observation.component:inferior-vena-cava.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:inferior-vena-cava.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:inferior-vena-cava.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:portal-vein-and-splenic-vein",
+        "path": "Observation.component",
+        "sliceName": "portal-vein-and-splenic-vein",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:portal-vein-and-splenic-vein.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:portal-vein-and-splenic-vein.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:portal-vein-and-splenic-vein.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "110765007"
+      },
+      {
+        "id": "Observation.component:portal-vein-and-splenic-vein.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:portal-vein-and-splenic-vein.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:portal-vein-and-splenic-vein.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:pancreas",
+        "path": "Observation.component",
+        "sliceName": "pancreas",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:pancreas.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:pancreas.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:pancreas.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "15776009"
+      },
+      {
+        "id": "Observation.component:pancreas.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:pancreas.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:pancreas.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:right-adrenal-gland",
+        "path": "Observation.component",
+        "sliceName": "right-adrenal-gland",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:right-adrenal-gland.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:right-adrenal-gland.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:right-adrenal-gland.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "29392005"
+      },
+      {
+        "id": "Observation.component:right-adrenal-gland.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:right-adrenal-gland.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:right-adrenal-gland.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:left-adrenal-gland",
+        "path": "Observation.component",
+        "sliceName": "left-adrenal-gland",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:left-adrenal-gland.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:left-adrenal-gland.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:left-adrenal-gland.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "12003004"
+      },
+      {
+        "id": "Observation.component:left-adrenal-gland.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:left-adrenal-gland.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:left-adrenal-gland.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:lung-left-upper-lobe",
+        "path": "Observation.component",
+        "sliceName": "lung-left-upper-lobe",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-left-upper-lobe.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:lung-left-upper-lobe.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:lung-left-upper-lobe.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "44714003"
+      },
+      {
+        "id": "Observation.component:lung-left-upper-lobe.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-left-upper-lobe.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:lung-left-upper-lobe.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:lung-left-lower-lobe",
+        "path": "Observation.component",
+        "sliceName": "lung-left-lower-lobe",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-left-lower-lobe.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:lung-left-lower-lobe.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:lung-left-lower-lobe.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "41224006"
+      },
+      {
+        "id": "Observation.component:lung-left-lower-lobe.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-left-lower-lobe.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:lung-left-lower-lobe.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:lung-right-upper-lobe",
+        "path": "Observation.component",
+        "sliceName": "lung-right-upper-lobe",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-right-upper-lobe.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:lung-right-upper-lobe.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:lung-right-upper-lobe.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "42400003"
+      },
+      {
+        "id": "Observation.component:lung-right-upper-lobe.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-right-upper-lobe.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:lung-right-upper-lobe.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:lung-right-middle-lobe",
+        "path": "Observation.component",
+        "sliceName": "lung-right-middle-lobe",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-right-middle-lobe.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:lung-right-middle-lobe.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:lung-right-middle-lobe.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "72481006"
+      },
+      {
+        "id": "Observation.component:lung-right-middle-lobe.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-right-middle-lobe.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:lung-right-middle-lobe.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:lung-right-lower-lobe",
+        "path": "Observation.component",
+        "sliceName": "lung-right-lower-lobe",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-right-lower-lobe.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:lung-right-lower-lobe.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:lung-right-lower-lobe.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "266005"
+      },
+      {
+        "id": "Observation.component:lung-right-lower-lobe.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:lung-right-lower-lobe.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:lung-right-lower-lobe.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-L5",
+        "path": "Observation.component",
+        "sliceName": "vertebra-L5",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L5.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-L5.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-L5.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "49668003"
+      },
+      {
+        "id": "Observation.component:vertebra-L5.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L5.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-L5.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-L4",
+        "path": "Observation.component",
+        "sliceName": "vertebra-L4",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L4.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-L4.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-L4.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "11994002"
+      },
+      {
+        "id": "Observation.component:vertebra-L4.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L4.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-L4.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-L3",
+        "path": "Observation.component",
+        "sliceName": "vertebra-L3",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L3.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-L3.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-L3.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "36470004"
+      },
+      {
+        "id": "Observation.component:vertebra-L3.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L3.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-L3.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-L2",
+        "path": "Observation.component",
+        "sliceName": "vertebra-L2",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L2.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-L2.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-L2.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "14293000"
+      },
+      {
+        "id": "Observation.component:vertebra-L2.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L2.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-L2.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-L1",
+        "path": "Observation.component",
+        "sliceName": "vertebra-L1",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L1.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-L1.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-L1.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "66794005"
+      },
+      {
+        "id": "Observation.component:vertebra-L1.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-L1.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-L1.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T12",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T12",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T12.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T12.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T12.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "23215003"
+      },
+      {
+        "id": "Observation.component:vertebra-T12.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T12.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T12.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T11",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T11",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T11.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T11.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T11.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "12989004"
+      },
+      {
+        "id": "Observation.component:vertebra-T11.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T11.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T11.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T10",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T10",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T10.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T10.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T10.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "7610001"
+      },
+      {
+        "id": "Observation.component:vertebra-T10.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T10.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T10.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T9",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T9",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T9.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T9.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T9.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "82687006"
+      },
+      {
+        "id": "Observation.component:vertebra-T9.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T9.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T9.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T8",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T8",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T8.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T8.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T8.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "11068009"
+      },
+      {
+        "id": "Observation.component:vertebra-T8.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T8.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T8.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T7",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T7",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T7.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T7.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T7.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "62487009"
+      },
+      {
+        "id": "Observation.component:vertebra-T7.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T7.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T7.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T6",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T6",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T6.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T6.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T6.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "45296009"
+      },
+      {
+        "id": "Observation.component:vertebra-T6.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T6.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T6.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T5",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T5",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T5.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T5.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T5.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "56401006"
+      },
+      {
+        "id": "Observation.component:vertebra-T5.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T5.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T5.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T4",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T4",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T4.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T4.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T4.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "73071006"
+      },
+      {
+        "id": "Observation.component:vertebra-T4.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T4.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T4.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T3",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T3",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T3.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T3.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T3.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "1626008"
+      },
+      {
+        "id": "Observation.component:vertebra-T3.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T3.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T3.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T2",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T2",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T2.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T2.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T2.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "53733008"
+      },
+      {
+        "id": "Observation.component:vertebra-T2.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T2.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T2.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-T1",
+        "path": "Observation.component",
+        "sliceName": "vertebra-T1",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T1.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-T1.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-T1.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "64864005"
+      },
+      {
+        "id": "Observation.component:vertebra-T1.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-T1.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-T1.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-C7",
+        "path": "Observation.component",
+        "sliceName": "vertebra-C7",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C7.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-C7.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-C7.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "87391001"
+      },
+      {
+        "id": "Observation.component:vertebra-C7.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C7.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-C7.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-C6",
+        "path": "Observation.component",
+        "sliceName": "vertebra-C6",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C6.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-C6.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-C6.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "36054005"
+      },
+      {
+        "id": "Observation.component:vertebra-C6.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C6.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-C6.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-C5",
+        "path": "Observation.component",
+        "sliceName": "vertebra-C5",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C5.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-C5.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-C5.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "36978003"
+      },
+      {
+        "id": "Observation.component:vertebra-C5.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C5.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-C5.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-C4",
+        "path": "Observation.component",
+        "sliceName": "vertebra-C4",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C4.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-C4.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-C4.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "5329002"
+      },
+      {
+        "id": "Observation.component:vertebra-C4.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C4.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-C4.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-C3",
+        "path": "Observation.component",
+        "sliceName": "vertebra-C3",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C3.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-C3.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-C3.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "113205007"
+      },
+      {
+        "id": "Observation.component:vertebra-C3.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C3.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-C3.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-C2",
+        "path": "Observation.component",
+        "sliceName": "vertebra-C2",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C2.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-C2.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-C2.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "39976000"
+      },
+      {
+        "id": "Observation.component:vertebra-C2.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C2.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-C2.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:vertebra-C1",
+        "path": "Observation.component",
+        "sliceName": "vertebra-C1",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C1.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:vertebra-C1.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:vertebra-C1.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "14806007"
+      },
+      {
+        "id": "Observation.component:vertebra-C1.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:vertebra-C1.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:vertebra-C1.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:esophagus",
+        "path": "Observation.component",
+        "sliceName": "esophagus",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:esophagus.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:esophagus.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:esophagus.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "32849002"
+      },
+      {
+        "id": "Observation.component:esophagus.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:esophagus.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:esophagus.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:trachea",
+        "path": "Observation.component",
+        "sliceName": "trachea",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:trachea.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:trachea.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:trachea.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "44567001"
+      },
+      {
+        "id": "Observation.component:trachea.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:trachea.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:trachea.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:myocardium",
+        "path": "Observation.component",
+        "sliceName": "myocardium",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:myocardium.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:myocardium.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:myocardium.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "74281007"
+      },
+      {
+        "id": "Observation.component:myocardium.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:myocardium.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:myocardium.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:heart-left-atrium",
+        "path": "Observation.component",
+        "sliceName": "heart-left-atrium",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-left-atrium.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:heart-left-atrium.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:heart-left-atrium.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "82471001"
+      },
+      {
+        "id": "Observation.component:heart-left-atrium.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-left-atrium.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:heart-left-atrium.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:heart-left-ventricle",
+        "path": "Observation.component",
+        "sliceName": "heart-left-ventricle",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-left-ventricle.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:heart-left-ventricle.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:heart-left-ventricle.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "87878005"
+      },
+      {
+        "id": "Observation.component:heart-left-ventricle.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-left-ventricle.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:heart-left-ventricle.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:heart-right-atrium",
+        "path": "Observation.component",
+        "sliceName": "heart-right-atrium",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-right-atrium.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:heart-right-atrium.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:heart-right-atrium.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "73829009"
+      },
+      {
+        "id": "Observation.component:heart-right-atrium.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-right-atrium.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:heart-right-atrium.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:heart-right-ventricle",
+        "path": "Observation.component",
+        "sliceName": "heart-right-ventricle",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-right-ventricle.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:heart-right-ventricle.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:heart-right-ventricle.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "53085002"
+      },
+      {
+        "id": "Observation.component:heart-right-ventricle.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:heart-right-ventricle.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:heart-right-ventricle.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:pulmonary-artery",
+        "path": "Observation.component",
+        "sliceName": "pulmonary-artery",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:pulmonary-artery.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:pulmonary-artery.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:pulmonary-artery.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "81040000"
+      },
+      {
+        "id": "Observation.component:pulmonary-artery.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:pulmonary-artery.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:pulmonary-artery.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:brain",
+        "path": "Observation.component",
+        "sliceName": "brain",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:brain.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:brain.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:brain.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "12738006"
+      },
+      {
+        "id": "Observation.component:brain.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:brain.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:brain.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:iliac-artery-left",
+        "path": "Observation.component",
+        "sliceName": "iliac-artery-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-artery-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:iliac-artery-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:iliac-artery-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "721077009"
+      },
+      {
+        "id": "Observation.component:iliac-artery-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-artery-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:iliac-artery-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:iliac-artery-right",
+        "path": "Observation.component",
+        "sliceName": "iliac-artery-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-artery-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:iliac-artery-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:iliac-artery-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "721035009"
+      },
+      {
+        "id": "Observation.component:iliac-artery-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-artery-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:iliac-artery-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:iliac-vena-left",
+        "path": "Observation.component",
+        "sliceName": "iliac-vena-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-vena-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:iliac-vena-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:iliac-vena-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "764118005"
+      },
+      {
+        "id": "Observation.component:iliac-vena-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-vena-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:iliac-vena-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:iliac-vena-right",
+        "path": "Observation.component",
+        "sliceName": "iliac-vena-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-vena-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:iliac-vena-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:iliac-vena-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "764119002"
+      },
+      {
+        "id": "Observation.component:iliac-vena-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliac-vena-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:iliac-vena-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:small-bowel",
+        "path": "Observation.component",
+        "sliceName": "small-bowel",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:small-bowel.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:small-bowel.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:small-bowel.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "30315005"
+      },
+      {
+        "id": "Observation.component:small-bowel.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:small-bowel.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:small-bowel.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:duodenum",
+        "path": "Observation.component",
+        "sliceName": "duodenum",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:duodenum.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:duodenum.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:duodenum.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "38848004"
+      },
+      {
+        "id": "Observation.component:duodenum.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:duodenum.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:duodenum.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:colon",
+        "path": "Observation.component",
+        "sliceName": "colon",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:colon.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:colon.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:colon.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "71854001"
+      },
+      {
+        "id": "Observation.component:colon.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:colon.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:colon.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-1",
+        "path": "Observation.component",
+        "sliceName": "rib-left-1",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-1.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-1.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-1.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-1"
+      },
+      {
+        "id": "Observation.component:rib-left-1.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-1.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-1.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-2",
+        "path": "Observation.component",
+        "sliceName": "rib-left-2",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-2.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-2.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-2.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-2"
+      },
+      {
+        "id": "Observation.component:rib-left-2.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-2.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-2.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-3",
+        "path": "Observation.component",
+        "sliceName": "rib-left-3",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-3.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-3.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-3.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-3"
+      },
+      {
+        "id": "Observation.component:rib-left-3.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-3.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-3.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-4",
+        "path": "Observation.component",
+        "sliceName": "rib-left-4",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-4.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-4.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-4.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-4"
+      },
+      {
+        "id": "Observation.component:rib-left-4.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-4.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-4.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-5",
+        "path": "Observation.component",
+        "sliceName": "rib-left-5",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-5.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-5.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-5.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-5"
+      },
+      {
+        "id": "Observation.component:rib-left-5.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-5.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-5.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-6",
+        "path": "Observation.component",
+        "sliceName": "rib-left-6",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-6.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-6.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-6.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-6"
+      },
+      {
+        "id": "Observation.component:rib-left-6.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-6.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-6.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-7",
+        "path": "Observation.component",
+        "sliceName": "rib-left-7",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-7.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-7.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-7.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-7"
+      },
+      {
+        "id": "Observation.component:rib-left-7.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-7.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-7.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-8",
+        "path": "Observation.component",
+        "sliceName": "rib-left-8",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-8.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-8.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-8.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-8"
+      },
+      {
+        "id": "Observation.component:rib-left-8.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-8.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-8.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-9",
+        "path": "Observation.component",
+        "sliceName": "rib-left-9",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-9.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-9.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-9.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-9"
+      },
+      {
+        "id": "Observation.component:rib-left-9.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-9.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-9.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-10",
+        "path": "Observation.component",
+        "sliceName": "rib-left-10",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-10.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-10.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-10.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-10"
+      },
+      {
+        "id": "Observation.component:rib-left-10.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-10.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-10.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-11",
+        "path": "Observation.component",
+        "sliceName": "rib-left-11",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-11.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-11.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-11.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-11"
+      },
+      {
+        "id": "Observation.component:rib-left-11.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-11.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-11.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-left-12",
+        "path": "Observation.component",
+        "sliceName": "rib-left-12",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-12.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-left-12.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-left-12.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-left-12"
+      },
+      {
+        "id": "Observation.component:rib-left-12.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-left-12.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-left-12.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-1",
+        "path": "Observation.component",
+        "sliceName": "rib-right-1",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-1.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-1.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-1.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-1"
+      },
+      {
+        "id": "Observation.component:rib-right-1.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-1.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-1.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-2",
+        "path": "Observation.component",
+        "sliceName": "rib-right-2",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-2.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-2.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-2.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-2"
+      },
+      {
+        "id": "Observation.component:rib-right-2.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-2.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-2.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-3",
+        "path": "Observation.component",
+        "sliceName": "rib-right-3",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-3.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-3.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-3.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-3"
+      },
+      {
+        "id": "Observation.component:rib-right-3.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-3.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-3.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-4",
+        "path": "Observation.component",
+        "sliceName": "rib-right-4",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-4.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-4.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-4.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-4"
+      },
+      {
+        "id": "Observation.component:rib-right-4.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-4.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-4.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-5",
+        "path": "Observation.component",
+        "sliceName": "rib-right-5",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-5.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-5.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-5.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-5"
+      },
+      {
+        "id": "Observation.component:rib-right-5.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-5.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-5.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-6",
+        "path": "Observation.component",
+        "sliceName": "rib-right-6",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-6.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-6.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-6.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-6"
+      },
+      {
+        "id": "Observation.component:rib-right-6.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-6.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-6.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-7",
+        "path": "Observation.component",
+        "sliceName": "rib-right-7",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-7.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-7.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-7.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-7"
+      },
+      {
+        "id": "Observation.component:rib-right-7.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-7.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-7.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-8",
+        "path": "Observation.component",
+        "sliceName": "rib-right-8",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-8.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-8.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-8.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-8"
+      },
+      {
+        "id": "Observation.component:rib-right-8.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-8.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-8.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-9",
+        "path": "Observation.component",
+        "sliceName": "rib-right-9",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-9.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-9.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-9.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-9"
+      },
+      {
+        "id": "Observation.component:rib-right-9.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-9.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-9.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-10",
+        "path": "Observation.component",
+        "sliceName": "rib-right-10",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-10.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-10.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-10.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-10"
+      },
+      {
+        "id": "Observation.component:rib-right-10.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-10.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-10.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-11",
+        "path": "Observation.component",
+        "sliceName": "rib-right-11",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-11.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-11.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-11.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-11"
+      },
+      {
+        "id": "Observation.component:rib-right-11.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-11.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-11.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:rib-right-12",
+        "path": "Observation.component",
+        "sliceName": "rib-right-12",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-12.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:rib-right-12.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:rib-right-12.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "rib-right-12"
+      },
+      {
+        "id": "Observation.component:rib-right-12.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:rib-right-12.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:rib-right-12.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:humerus-left",
+        "path": "Observation.component",
+        "sliceName": "humerus-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:humerus-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:humerus-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:humerus-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "719460003"
+      },
+      {
+        "id": "Observation.component:humerus-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:humerus-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:humerus-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:humerus-right",
+        "path": "Observation.component",
+        "sliceName": "humerus-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:humerus-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:humerus-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:humerus-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "719461004"
+      },
+      {
+        "id": "Observation.component:humerus-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:humerus-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:humerus-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:scapula-left",
+        "path": "Observation.component",
+        "sliceName": "scapula-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:scapula-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:scapula-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:scapula-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "719627005"
+      },
+      {
+        "id": "Observation.component:scapula-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:scapula-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:scapula-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:scapula-right",
+        "path": "Observation.component",
+        "sliceName": "scapula-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:scapula-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:scapula-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:scapula-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "719628000"
+      },
+      {
+        "id": "Observation.component:scapula-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:scapula-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:scapula-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:clavicula-left",
+        "path": "Observation.component",
+        "sliceName": "clavicula-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:clavicula-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:clavicula-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:clavicula-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "720617006"
+      },
+      {
+        "id": "Observation.component:clavicula-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:clavicula-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:clavicula-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:clavicula-right",
+        "path": "Observation.component",
+        "sliceName": "clavicula-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:clavicula-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:clavicula-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:clavicula-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "720616002"
+      },
+      {
+        "id": "Observation.component:clavicula-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:clavicula-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:clavicula-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:femur-left",
+        "path": "Observation.component",
+        "sliceName": "femur-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:femur-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:femur-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:femur-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "722738000"
+      },
+      {
+        "id": "Observation.component:femur-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:femur-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:femur-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:femur-right",
+        "path": "Observation.component",
+        "sliceName": "femur-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:femur-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:femur-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:femur-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "722739008"
+      },
+      {
+        "id": "Observation.component:femur-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:femur-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:femur-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:hip-left",
+        "path": "Observation.component",
+        "sliceName": "hip-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:hip-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:hip-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:hip-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "RID29356"
+      },
+      {
+        "id": "Observation.component:hip-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:hip-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:hip-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:hip-right",
+        "path": "Observation.component",
+        "sliceName": "hip-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:hip-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:hip-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:hip-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "RID29355"
+      },
+      {
+        "id": "Observation.component:hip-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:hip-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:hip-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:sacrum",
+        "path": "Observation.component",
+        "sliceName": "sacrum",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:sacrum.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:sacrum.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:sacrum.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "699698002"
+      },
+      {
+        "id": "Observation.component:sacrum.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:sacrum.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:sacrum.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:face",
+        "path": "Observation.component",
+        "sliceName": "face",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:face.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:face.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:face.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "89545001"
+      },
+      {
+        "id": "Observation.component:face.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:face.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:face.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-left",
+        "path": "Observation.component",
+        "sliceName": "gluteus-maximus-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "gluteus-maximus-left"
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-right",
+        "path": "Observation.component",
+        "sliceName": "gluteus-maximus-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "gluteus-maximus-right"
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:gluteus-maximus-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:gluteus-medius-left",
+        "path": "Observation.component",
+        "sliceName": "gluteus-medius-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-medius-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:gluteus-medius-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:gluteus-medius-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "1236872009"
+      },
+      {
+        "id": "Observation.component:gluteus-medius-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-medius-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:gluteus-medius-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:gluteus-medius-right",
+        "path": "Observation.component",
+        "sliceName": "gluteus-medius-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-medius-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:gluteus-medius-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:gluteus-medius-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "1236873004"
+      },
+      {
+        "id": "Observation.component:gluteus-medius-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-medius-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:gluteus-medius-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-left",
+        "path": "Observation.component",
+        "sliceName": "gluteus-minimus-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "gluteus-minimus-left"
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-right",
+        "path": "Observation.component",
+        "sliceName": "gluteus-minimus-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "gluteus-minimus-right"
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:gluteus-minimus-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:autochthon-left",
+        "path": "Observation.component",
+        "sliceName": "autochthon-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:autochthon-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:autochthon-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:autochthon-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "autochthon-left"
+      },
+      {
+        "id": "Observation.component:autochthon-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:autochthon-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:autochthon-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:autochthon-right",
+        "path": "Observation.component",
+        "sliceName": "autochthon-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:autochthon-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:autochthon-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:autochthon-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "autochthon-right"
+      },
+      {
+        "id": "Observation.component:autochthon-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:autochthon-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:autochthon-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:iliopsoas-left",
+        "path": "Observation.component",
+        "sliceName": "iliopsoas-left",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliopsoas-left.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:iliopsoas-left.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:iliopsoas-left.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "RID30908"
+      },
+      {
+        "id": "Observation.component:iliopsoas-left.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliopsoas-left.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:iliopsoas-left.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:iliopsoas-right",
+        "path": "Observation.component",
+        "sliceName": "iliopsoas-right",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliopsoas-right.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:iliopsoas-right.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:iliopsoas-right.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "RID30907"
+      },
+      {
+        "id": "Observation.component:iliopsoas-right.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:iliopsoas-right.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:iliopsoas-right.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      },
+      {
+        "id": "Observation.component:urinary-bladder",
+        "path": "Observation.component",
+        "sliceName": "urinary-bladder",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:urinary-bladder.code.coding",
+        "path": "Observation.component.code.coding",
+        "min": 1,
+        "max": "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+        }
+      },
+      {
+        "id": "Observation.component:urinary-bladder.code.coding.system",
+        "path": "Observation.component.code.coding.system",
+        "min": 1,
+        "fixedUri": "https://uk-essen.de/fhir/ValueSet/boa/body-structure"
+      },
+      {
+        "id": "Observation.component:urinary-bladder.code.coding.code",
+        "path": "Observation.component.code.coding.code",
+        "min": 1,
+        "fixedCode": "89837001"
+      },
+      {
+        "id": "Observation.component:urinary-bladder.value[x]",
+        "path": "Observation.component.value[x]",
+        "min": 1,
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.component:urinary-bladder.value[x].value",
+        "path": "Observation.component.value[x].value",
+        "min": 1
+      },
+      {
+        "id": "Observation.component:urinary-bladder.value[x].unit",
+        "path": "Observation.component.value[x].unit",
+        "min": 1,
+        "patternString": "ml"
+      }
+    ]
+  }
+}
