@@ -14,7 +14,7 @@ The goal of this project is to integrate body organ and composition measurements
 
 ## Methods
 
-We utilized a **Body and Organ Analysis ([BOA](https://github.com/UMEssen/Body-and-Organ-Analysis))** model to extract relevant data from CT scans and integrated this information into FHIR profiles. This allows for the interoperable use of AI-generated biomarkers in radiology and facilitates opportunistic screening by capturing incidental findings during routine imaging.
+We utilized a **Body and Organ Analysis ([BOA](https://github.com/UMEssen/Body-and-Organ-Analysis))** model to extract relevant data from CT scans and integrated this information into FHIR profiles. This allows for the interoperable use of AI-generated biomarkers in radiology and facilitates opportunistic screening during routine imaging.
 
 ## Results
 
