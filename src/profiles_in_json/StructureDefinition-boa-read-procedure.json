@@ -1,0 +1,61 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "boa-read-procedure",
+  "url": "http://fhir.ume.de/fhir/StructureDefinition/boa/read-procedure",
+  "version": "0.0.1",
+  "name": "BOAReadProcedure",
+  "title": "BOAReadProcedure",
+  "status": "active",
+  "description": "This profile represents procedures for radiological diagnostics",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Procedure.category",
+        "path": "Procedure.category",
+        "min": 1,
+        "fixedCodeableConcept": {
+          "coding": [
+            {
+              "code": "165197003",
+              "system": "http://snomed.info/sct",
+              "display": "Diagnostic assessment"
+            }
+          ]
+        }
+      },
+      {
+        "id": "Procedure.subject",
+        "path": "Procedure.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Procedure.report",
+        "path": "Procedure.report",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "https://profiles.ship.ume.de/StructureDefinition/boa-diagnostic-report"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}
