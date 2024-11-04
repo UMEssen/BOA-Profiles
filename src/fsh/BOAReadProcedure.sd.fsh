@@ -8,8 +8,9 @@ Description: "This profile represents procedures for radiological diagnostics"
 * ^url = "http://fhir.ume.de/fhir/StructureDefinition/boa/read-procedure"
 * ^version = "0.0.1"
 
-//* meta.tag[+].code = "AIAST"
-//* meta.tag[+].display = "BOA model"
+* ^meta.security.system = "http://terminology.hl7.org/CodeSystem/v3-ObservationValue"
+* ^meta.security.code = #AIAST
+* ^meta.security.display = "BOA model"
 
 * category 1..
 * category = $sct#165197003 "Diagnostic assessment" (exactly)
