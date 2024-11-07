@@ -9,6 +9,11 @@ Description: "Anatomical landmark volume measurements generated with the Body an
 * status MS
 * status.value = #final
 
+* code MS 
+* code from BOABodyStructureVSSystem (required)
+* code.coding.system 1..1
+* code.coding.code 1..1
+
 * subject 1..1 MS 
 * subject only Reference(Patient)
 
