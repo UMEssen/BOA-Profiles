@@ -30,13 +30,11 @@ Description: "CodeSystem for the anatomical landmarks computed by the Body and O
 * #rib-right-10 "Tenth Rib Right"
 * #rib-right-11 "Eleventh Rib Right"
 * #rib-right-12 "Twelfth Rib Right"
-// * #hip-left "Hip Left" // Using RADLEX#RID29356
-// * #hip-right "Hip Right" // Using RADLEX#RID29355
+
 * #gluteus-maximus-left "Gluteus Maximus Left"
 * #gluteus-maximus-right "Gluteus Maximus Right"
 * #gluteus-minimus-left "Gluteus Minimus Left"
 * #gluteus-minimus-right "Gluteus Minimus Right"
 * #autochthon-left "Autochthon Left"
 * #autochthon-right "Autochthon Right"
-// * #iliopsoas-left "Iliopsoas Left" // Using RADLEX#RID30908
-// * #iliopsoas-right "Iliopsoas Right" // Using RADLEX#RID30907
+

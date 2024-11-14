@@ -1,7 +1,6 @@
 Alias: IVPhaseVSSystem = https://uk-essen.de/fhir/ValueSet/boa/contrast/iv-phase
 Alias: GITContrastVSSystem = https://uk-essen.de/fhir/ValueSet/boa/contrast/git
 
-// Currently have created a custom code system for this, in RadLex there is "intravenous contrast" (RID49553) but that is not specific, or "oral contrast" (RID35817), which is too specific (we don't know if the contrast is oral, we only know that it appears in the GIT)
 
 ValueSet: IVPhaseVS
 Id: iv-phase-vs

@@ -21,7 +21,7 @@ Description: "Tissue definitions for the body composition analysis."
 * SCT#91727004 "Muscle Tissue" // "Entire muscle tissue (body structure)"
 * SCT#3138006 "Bone Tissue" // "Bone (tissue) structure (body structure)"
 * SCT#67769002 "Subcutaneous Adipose Tissue"
-// RadLex
+
 * RADLEX#RID50365 "Visceral Adipose Tissue" // "Visceral fat"
 
 

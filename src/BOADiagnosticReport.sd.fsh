@@ -9,7 +9,7 @@ Description: "Segmentation and biomarker report generated with the Body and Orga
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #openAtEnd
 
-// DICOM identifier
+
 * identifier contains
     DICOM 1..1
 

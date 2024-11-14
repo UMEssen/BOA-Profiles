@@ -23,7 +23,7 @@ Description: "Anatomical landmark volume measurements generated with the Body an
 * derivedFrom 1..* MS 
 * derivedFrom only Reference(ImagingStudy)
 
-//* component ^slicing.id = "394"
+
 * component ^slicing.discriminator.type = #value
 * component ^slicing.discriminator.path = "code.coding.code"
 * component ^slicing.ordered = false

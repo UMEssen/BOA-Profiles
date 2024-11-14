@@ -35,7 +35,7 @@ Description: "Body composition anaylsis biomarker measurements generated with th
 
 
 
-//* component ^slicing.id = "394"
+
 * component ^slicing.discriminator.type = #value
 * component ^slicing.discriminator.path = "code.coding.code"
 * component ^slicing.ordered = false
@@ -51,7 +51,7 @@ Description: "Body composition anaylsis biomarker measurements generated with th
     and vat 0..1 MS
     and pat 0..1 MS
     and eat 0..1 MS
-//conceptually sliceRange is something else than the rest of the slices. Maybe it should be considered if an extension is used for this value instead
+
 * component[sliceRange].code.coding.system 1..1
 * component[sliceRange].code.coding.system = SliceRangeCSSystem
 
@@ -67,7 +67,6 @@ Description: "Body composition anaylsis biomarker measurements generated with th
 * component[sliceRange].valueRange.low.value 1..1
 * component[sliceRange].valueRange.high.value 1..1
 
-//for the components, the ValueSets are being put instead of Code System, for example TissuesVSSystem instead of $snomed
 * insert CreateComponent(bone, TissuesVSSystem, #3138006)
 * insert CreateComponent(muscle, TissuesVSSystem, #91727004)
 * insert CreateComponent(tat, TissuesVSSystem, #tat)

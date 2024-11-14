@@ -88,6 +88,7 @@ Description: "ValueSet for the anatomical landmarks computed by the Body and Org
 * SCT#1236872009 "Structure of left gluteus medius muscle (body structure)"
 * SCT#1236873004 "Structure of right gluteus medius muscle (body structure)"
 * SCT#89837001 "Urinary bladder structure (body structure)"
+
 // RadLex
 * RADLEX#RID29356 "Hip Left"
 * RADLEX#RID29355 "Hip Right"

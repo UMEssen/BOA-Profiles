@@ -12,17 +12,17 @@ Description: "Measurement kind for the body composition analysis."
 * #volume-filtered "Measurements without Extremities"
 
 
-// BCA-Tissues used in Observation.component
+
 CodeSystem: BCATissuesCS
 Id: bcs-tissues-cs
 Title: "BCATissuesCS"
 Description: "Tissues definitions used for computing body composition analysis."
 * ^url = TissuesCS
-// * #vat "Visceral Adipose Tissue" // Using RADLEX#RID50365
-* #imat "Intermuscular Adipose Tissue" // Inter- and Intramuscular Adipose Tissue
+
+* #imat "Intermuscular Adipose Tissue" 
 * #pat "Paracardial Adipose Tissue"
 * #eat "Epicardial Adipose Tissue"
-* #tat "Total Adipose Fat" // "Total Adipose Fat = SAT + VAT + IMAT + PAT + EAT"
+* #tat "Total Adipose Fat" 
 
 
 CodeSystem: BCABodySiteCS
@@ -31,7 +31,7 @@ Title: "BCABodySiteCS"
 Description: "Location for which the body composition analysis measurements are computed."
 * ^url = BodySiteCSSystem
 * #ventral-cavity "Union of Abdominal and Thoracic Cavity"
-* #whole-scan "Whole Scan" // I understand why this is put here, but a whole scan is not a bodySite and the field should not be missused
+* #whole-scan "Whole Scan" 
 
 
 CodeSystem: BCASliceRangeCS
