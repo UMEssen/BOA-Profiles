@@ -30,3 +30,12 @@ These profiles allow the use of AI segmentation models for Body Composition Anal
 ## Bigger Picture
 
 The BOA profiles represent an initial step towards standardizing the use of CT-based measurements in FHIR. By enhancing the interoperability of imaging-derived data, these profiles support the development of personalized medicine and can be adapted for use with other imaging modalities and algorithms.
+
+## Citation
+
+Please cite the paper:
+[BOA-Profiles](http://dx.doi.org/10.2196/68750)
+```
+Wen et al.
+FHIR-Enabled Exchange of Quantitative CT-Assessed Body Composition Data: A Necessary Step for an Interoperable Integration of Opportunistic Screening into Clinical Practice. J Med Internet Res (forthcoming). doi:10.2196/68750
+```
