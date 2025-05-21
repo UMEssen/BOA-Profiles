@@ -34,8 +34,10 @@ The BOA profiles represent an initial step towards standardizing the use of CT-b
 ## Citation
 
 Please cite the paper:
-[BOA-Profiles](http://dx.doi.org/10.2196/68750)
 ```
-Wen et al.
-FHIR-Enabled Exchange of Quantitative CT-Assessed Body Composition Data: A Necessary Step for an Interoperable Integration of Opportunistic Screening into Clinical Practice. J Med Internet Res (forthcoming). doi:10.2196/68750
+Wen Y, Choo V, Eil J, Thun S, Pinto dos Santos D, Kast J, Sigle S, Prokosch H, Ovelgönne D, Borys K, Kohnke J, Arzideh K, Winnekens P, Baldini G, Schmidt C, Haubold J, Nensa F, Pelka O, Hosch R
+Exchange of Quantitative Computed Tomography Assessed Body Composition Data Using Fast Healthcare Interoperability Resources as a Necessary Step Toward Interoperable Integration of Opportunistic Screening Into Clinical Practice: Methodological Development Study
+J Med Internet Res 2025;27:e68750
+URL: https://www.jmir.org/2025/1/e68750
+DOI: 10.2196/68750
 ```
